@@ -1,0 +1,65 @@
+<!-- Landing page -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Muthayammal Basic Front end</title>
+    <!-- internal style sheet -->
+    <style>
+        .buttonflex{
+            display: flex;
+            justify-content: space-evenly;
+        }
+        .container{
+            display: flex;
+            height: 80vh;
+            align-items: center;
+            background-color: burlywood;
+        }
+        .formcolumn{
+            flex:3;
+            border: 4px;
+            border-style: dashed;
+            border-radius: 10px;
+            padding: 10px;
+            color: blue;
+            box-shadow: 10px 10px 50px;
+        }
+        .logodiv{
+            flex: 6;
+            display: flex;
+            align-items: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="logodiv">
+            <div>
+                <img style="width: 100px; height: 100px;" src="/media/MEC-Logo.png"/>
+            </div>
+            <div>
+                <h1>Muthayammal Engineering College</h1>
+                <h2>An Autonomous Institution</h2>
+            </div>
+        </div>
+        <div class="formcolumn">
+            <form>
+                <div>
+                    <label>User name</label>
+                    <input type="text" name="username" placeholder="Enter the username" />
+                </div>
+                <div>
+                    <label>Password</label>
+                    <input type="password" name="passwd" placeholder="Enter the password" />
+                </div>
+                <div class="buttonflex">
+                    <input type="button" value="Login" />
+                    <input type="button" value="Clear" />
+                </div>
+            </form>
+        </div>
+    </div>
+</body>
+</html>
