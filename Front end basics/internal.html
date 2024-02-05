@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Internal Script</title>
+    <script>
+        //var dollar = prompt("Enter the dollar ","")
+        //alert(dollar*82.5)
+        // document object model
+        function flex(){
+            var given = document.getElementsByName("dollar")
+            //document.writeln(given[0].value*82.5)
+            //document.getElementsByName("result")[0].value=given[0].value*82.5
+            document.getElementsByName("record")[0].innerHTML=given[0].value*82.5
+        }
+    </script>
+</head>
+<body>
+    <input type="text" name="dollar" placeholder="Enter the dollar to rupees conversion" />
+    <input type="button" value="Rupees" onclick="flex()"/>
+    <output name="result"/>
+    <h1 name="record">Value</h1>
+</body>
+</html>
