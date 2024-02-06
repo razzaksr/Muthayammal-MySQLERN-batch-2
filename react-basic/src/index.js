@@ -1,17 +1,21 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import Title, { Designation, MyImage } from './mytitle';
-import MySkill from './listing';
+// import Title, { Designation, MyImage } from './mytitle';
+// import MySkill from './listing';
 import '../node_modules/bootstrap/dist/css/bootstrap.min.css'
+import App from './App';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <>
-    <Title/>
-    <Designation/>
-    <MyImage/>
-    <MySkill/>
+    <App/>
   </>
+  // <>
+  //   <Title/>
+  //   <Designation/>
+  //   <MyImage/>
+  //   <MySkill/>
+  // </>
   // <>
   //   <h1>Razak Mohamed S</h1>
   //   <ul>
