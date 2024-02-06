@@ -1,17 +1,18 @@
-import { BrowserRouter, Route, Routes } from "react-router-dom"
-import EffectDemo from "./effectdemo"
-import StateDemo from "./statedemo"
-import MySkill from "./listing"
-import Title, { Designation, MyImage } from "./mytitle"
-import ParamsDemo from "./paramsdemo"
-import ReactMenu from "./menu"
+// import { BrowserRouter, Route, Routes } from "react-router-dom"
+// import EffectDemo from "./effectdemo"
+// import StateDemo from "./statedemo"
+// import MySkill from "./listing"
+// import Title, { Designation, MyImage } from "./mytitle"
+// import ParamsDemo from "./paramsdemo"
+// import ReactMenu from "./menu"
+
+import Signup from "./signup"
 
 const App=()=>{
     return(
         <>
-            <BrowserRouter>
-                {/* <MyImage/>
-                <StateDemo/> */}
+            <Signup/>
+            {/* <BrowserRouter>
                 <ReactMenu/>
                 <Routes>
                     <Route path="" Component={()=><h1>Routing example</h1>} />
@@ -20,7 +21,7 @@ const App=()=>{
                     <Route path="role" Component={()=><Designation/>} />
                     <Route path="specific/:container" Component={()=><ParamsDemo/>} />
                 </Routes>
-            </BrowserRouter>
+            </BrowserRouter> */}
             {/* <StateDemo/>
             <EffectDemo/> */}
         </>
