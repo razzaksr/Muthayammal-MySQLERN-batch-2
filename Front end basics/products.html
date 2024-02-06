@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Products info</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js" integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+" crossorigin="anonymous"></script>
+    <script src="items.js"></script>
+</head>
+<body>
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-8 col-12">
+                <div class="card p-5 shadow-lg">
+                    <input type="text" id="proName" placeholder="Product name" class="form-control" />
+                    <input type="text" id="proBrand" placeholder="Product brand" class="form-control" />
+                    <input type="text" id="proPrice" placeholder="Product price" class="form-control" />
+                    <div class="mt-2 row justify-content-around">
+                        <button class="col-3 me-2 btn btn-outline-success" onclick="addOne()">Add</button>
+                        <button class="col-3 me-2 btn btn-outline-warning" onclick="viewAll()">View</button>
+                        <button class="col-3 me-2 btn btn-outline-info" onclick="readFew()">Read</button>
+                        <button class="col-3 me-2 btn btn-outline-secondary" onclick="updateOne()">Update</button>
+                        <button class="col-3 me-2 btn btn-outline-danger" onclick="deleteOne()">Delete</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row justify-content-center">
+            <div class="col-md-7 col-12">
+                <div class="table-responsive">
+                    <table class="table table-striped shadow-lg p-5">
+                        <thead>
+                            <tr>
+                                <th>Product name</th><th>Product brand</th><th>Product price</th>
+                            </tr>
+                        </thead>
+                        <tbody id="viewport">
+
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
