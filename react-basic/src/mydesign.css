@@ -1,0 +1,10 @@
+li{
+    font-size: 20px;
+}
+li:hover{
+    font-size: 40px
+}
+
+.mygroup{
+    text-align: center;
+}
