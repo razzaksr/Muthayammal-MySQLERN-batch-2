@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/Muthayammal-MySQLERN-batch-2/static/css/main.241951ba.css",
+    "main.js": "/Muthayammal-MySQLERN-batch-2/static/js/main.bb82384c.js",
+    "index.html": "/Muthayammal-MySQLERN-batch-2/index.html",
+    "main.241951ba.css.map": "/Muthayammal-MySQLERN-batch-2/static/css/main.241951ba.css.map",
+    "main.bb82384c.js.map": "/Muthayammal-MySQLERN-batch-2/static/js/main.bb82384c.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.241951ba.css",
+    "static/js/main.bb82384c.js"
+  ]
+}
