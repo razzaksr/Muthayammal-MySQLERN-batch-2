@@ -22,8 +22,11 @@ const Signup=()=>{
 
     const myCollect=(eve)=>{
         eve.preventDefault()
+        // decompose/ extraction
         const{name,value}=eve.target
+        //console.log(name+" "+value+" has triggered")
         setProfile((exists)=>{
+            // console.log(JSON.stringify(exists)+" current "+name+" "+value)
             return{
                 ...exists,
                 [name]:value

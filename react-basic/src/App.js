@@ -6,12 +6,16 @@
 // import ParamsDemo from "./paramsdemo"
 // import ReactMenu from "./menu"
 
+import ReadOne from "./readone"
 import Signup from "./signup"
+import ViewList from "./viewing"
 
 const App=()=>{
     return(
         <>
-            <Signup/>
+            {/* <Signup/> */}
+            <ViewList/>
+            {/* <ReadOne/> */}
             {/* <BrowserRouter>
                 <ReactMenu/>
                 <Routes>
