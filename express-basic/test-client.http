@@ -1,0 +1,18 @@
+###
+GET http://localhost:1234/
+
+###
+
+GET http://localhost:1234/mypass/Manikandan
+
+###
+
+POST http://localhost:1234/add
+Content-Type: application/json
+
+{
+    "profileName":"Razak Mohamed S",
+    "profileCibil":890,
+    "profileProfession":"Business",
+    "profileLocation":"Salem"
+}
