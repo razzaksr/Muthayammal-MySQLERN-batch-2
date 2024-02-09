@@ -1,0 +1,30 @@
+###
+GET http://localhost:1234/gettables
+###
+GET http://localhost:1234/api/viewall
+###
+POST http://localhost:1234/api/publish
+Content-Type: application/json
+
+{
+    "name":"Youtube",
+    "vendor":"google inc",
+    "category":"Entertainment"
+}
+###
+PUT http://localhost:1234/api/download/Subway surfers
+###
+PUT http://localhost:1234/api/download/Netflix
+###
+GET http://localhost:1234/api/Free Fire
+###
+GET http://localhost:1234/api/published/google
+###
+GET http://localhost:1234/api/type/Financial services
+###
+GET http://localhost:1234/api/users/1
+###
+PUT http://localhost:1234/api/rank/Netflix/4
+###
+GET http://localhost:1234/api/bytyperate/Financial services/4
+###
