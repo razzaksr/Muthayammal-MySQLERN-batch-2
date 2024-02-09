@@ -12,9 +12,55 @@ const base = mysql.createConnection({
 const app = express()
 app.use(parser.urlencoded({extended:true}))
 app.use(parser.json())
+app.use(async(req,res,next)=>{
+    const timeout=300000
+    req.setTimeout(timeout,()=>{
+        res.status(408).send({error:"time out"})
+    })
+    next()
+})
 
-base.connect(()=>{
-    console.log("Db connected successfully")
+base.connect((err)=>{
+    if(err)
+        console.log('db failed to connect')
+    else
+        console.log("Db connected successfully")
+})
+
+app.delete('/api/delbyrate/:rate',async(req,res)=>{
+    const sql="delete from mec_apps where app_ratings>=?"
+    base.query(sql,[req.params.rate],(err,ack)=>{
+        if(err)
+            res.status(500).json({error:`${err}`})
+        else if(ack.affectedRows==0)
+            res.status(404).json({error:"App not found to delete"})
+        else
+            res.status(200).json({message:"App unpublished from store"})
+    })
+})
+
+app.delete('/api/delbyname/:name',async(req,res)=>{
+    const sql="delete from mec_apps where app_name=?"
+    base.query(sql,[req.params.name],(err,ack)=>{
+        if(err)
+            res.status(500).json({error:`${err}`})
+        else if(ack.affectedRows==0)
+            res.status(404).json({error:"App not found to delete"})
+        else
+            res.status(200).json({message:"App unpublished from store"})
+    })
+})
+
+app.delete('/api/delbyid/:id',async(req,res)=>{
+    const sql="delete from mec_apps where app_id=?"
+    base.query(sql,[req.params.id],(err,ack)=>{
+        if(err)
+            res.status(500).json({error:`${err}`})
+        else if(ack.affectedRows==0)
+            res.status(404).json({error:"App not found to delete"})
+        else
+            res.status(200).json({message:"App unpublished from store"})
+    })
 })
 
 app.get('/api/bytyperate/:category/:rate',async(req,res)=>{
@@ -30,7 +76,8 @@ app.get('/api/bytyperate/:category/:rate',async(req,res)=>{
 })
 
 app.put('/api/rank/:app/:rate',async(req,res)=>{
-    const sql="update mec_apps set app_ratings=app_ratings+?/app_downloads where app_name=?"
+    const sql="update mec_apps set app_ratings=(app_ratings+?)/app_downloads where app_name=?"
+    // const sql="update mec_apps set app_ratings=(app_ratings+?)/app_downloads where app_name=?"
     base.query(sql,[req.params.rate,req.params.app],(err,ack)=>{
         if(err)
             res.status(500).json({error:`${err}`})

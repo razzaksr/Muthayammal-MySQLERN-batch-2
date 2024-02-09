@@ -16,7 +16,7 @@ PUT http://localhost:1234/api/download/Subway surfers
 ###
 PUT http://localhost:1234/api/download/Netflix
 ###
-GET http://localhost:1234/api/Free Fire
+GET http://localhost:1234/api/Youtube
 ###
 GET http://localhost:1234/api/published/google
 ###
@@ -24,7 +24,13 @@ GET http://localhost:1234/api/type/Financial services
 ###
 GET http://localhost:1234/api/users/1
 ###
-PUT http://localhost:1234/api/rank/Netflix/4
+PUT http://localhost:1234/api/rank/Youtube/5
 ###
 GET http://localhost:1234/api/bytyperate/Financial services/4
+###
+DELETE http://localhost:1234/api/delbyid/13008
+###
+DELETE http://localhost:1234/api/delbyname/Amazon
+###
+DELETE http://localhost:1234/api/delbyrate/10
 ###
