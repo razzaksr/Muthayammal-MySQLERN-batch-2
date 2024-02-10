@@ -1,15 +1,15 @@
 ###
 GET http://localhost:1234/gettables
 ###
-GET http://localhost:1234/api/viewall
+GET http://localhost:1234/api/
 ###
 POST http://localhost:1234/api/publish
 Content-Type: application/json
 
 {
-    "name":"Youtube",
-    "vendor":"google inc",
-    "category":"Entertainment"
+    "appName":"Youtube",
+    "appVendor":"google inc",
+    "appCategory":"Entertainment"
 }
 ###
 PUT http://localhost:1234/api/download/Subway surfers

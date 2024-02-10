@@ -5,6 +5,7 @@ import CategoryIcon from '@mui/icons-material/Category';
 import { useState } from "react";
 import CloudUploadIcon from '@mui/icons-material/CloudUpload';
 import CancelScheduleSendIcon from '@mui/icons-material/CancelScheduleSend';
+import { callPublish } from "./Apicalls";
 
 const Publish=()=>{
 
@@ -30,9 +31,19 @@ const Publish=()=>{
         })
     }
 
-    const toBePublished=()=>{
+    const[info,setInfo]=useState("")
+    const[infoStyle,setInfoStyle]=useState({})
+
+    const toBePublished=async()=>{
         app.appCategory=category
         console.log(app)
+        const res = await callPublish(app)
+        if(res.message){
+            setInfo(res.message)
+            setInfoStyle({
+                color:'red'
+            })
+        }
         toBeReset()
     }
 
@@ -52,6 +63,7 @@ const Publish=()=>{
             <div className="container">
                 <div className="row justify-content-center align-items-center" style={{height:'100vh'}}>
                     <div className="col-lg-8 col-12 col-md-7 rounded-2 card shadow-lg p-5">
+                        <p style={infoStyle} className="text-end">{info}</p>
                         <h1 className="card-title text-center text-primary">New App to Publish</h1>
                         <FormControl className="mb-2 form-control" variant="outlined">
                             <InputLabel htmlFor="appName">App Name</InputLabel>

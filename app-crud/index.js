@@ -1,6 +1,7 @@
 const express = require('express')
 const parser = require('body-parser')
 const mysql = require('mysql2')
+const cors = require('cors')
 
 const base = mysql.createConnection({
     database:"muthayammal",
@@ -10,6 +11,7 @@ const base = mysql.createConnection({
 })
 
 const app = express()
+app.use(cors())
 app.use(parser.urlencoded({extended:true}))
 app.use(parser.json())
 app.use(async(req,res,next)=>{
@@ -149,9 +151,9 @@ app.put('/api/download/:app/',async(req,res)=>{
 })
 
 app.post('/api/publish',async(req,res)=>{
-    const{name,vendor,category}=req.body
+    const{appName,appVendor,appCategory}=req.body
     const sql = 'insert into mec_apps(app_name,app_vendor,app_category) values(?,?,?)'
-    base.query(sql,[name,vendor,category],(err,acknowledgement)=>{
+    base.query(sql,[appName,appVendor,appCategory],(err,acknowledgement)=>{
         if(err)
             res.status(500).json({error:`${err} is occured`})
         else if(acknowledgement.affectedRows==0)
@@ -161,12 +163,13 @@ app.post('/api/publish',async(req,res)=>{
     })
 })
 
-app.get('/api/viewall',async(req,res)=>{
-    base.query('select * from mec_apps',(err,records)=>{
+app.get('/api/',async(req,res)=>{
+    const sql="select * from mec_apps"
+    base.query(sql,(err,records)=>{
         if(err)
-            res.status(500).json({error:`${err} is occured`})
+            res.status(500).json({error:`${err}`})
         else if(records.length==0)
-            res.status(404).json({error:'No records found'})
+            res.status(201).json({error:"Empty records"})
         else
             res.status(200).json({message:records})
     })

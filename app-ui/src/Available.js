@@ -1,81 +1,94 @@
 import { DataGrid } from "@mui/x-data-grid"
-import { useState } from "react"
+import { useEffect, useState } from "react"
+import { callView } from "./Apicalls"
 const Available=()=>{
-    const[tempList,setTempList]=useState([
-        {
-            'app_id':13001,
-            'app_name':'Netflix',
-            'app_vendor':'youtube inc',
-            'app_downloads':400000,
-            'app_ratings':4.5,
-            'app_category':'Entertainment'
-        },
-        {
-            'app_id':13002,
-            'app_name':'Netflix',
-            'app_vendor':'youtube inc',
-            'app_downloads':400000,
-            'app_ratings':4.5,
-            'app_category':'Entertainment'
-        },
-        {
-            'app_id':13003,
-            'app_name':'Netflix',
-            'app_vendor':'netflix inc',
-            'app_downloads':400000,
-            'app_ratings':4.5,
-            'app_category':'Entertainment'
-        },
-        {
-            'app_id':13004,
-            'app_name':'Netflix',
-            'app_vendor':'netflix inc',
-            'app_downloads':400000,
-            'app_ratings':4.5,
-            'app_category':'Entertainment'
-        },
-        {
-            'app_id':13005,
-            'app_name':'Netflix',
-            'app_vendor':'netflix inc',
-            'app_downloads':400000,
-            'app_ratings':4.5,
-            'app_category':'Entertainment'
-        },
-        {
-            'app_id':13006,
-            'app_name':'Netflix',
-            'app_vendor':'netflix inc',
-            'app_downloads':400000,
-            'app_ratings':4.5,
-            'app_category':'Entertainment'
-        },
-        {
-            'app_id':13007,
-            'app_name':'Netflix',
-            'app_vendor':'netflix inc',
-            'app_downloads':400000,
-            'app_ratings':4.5,
-            'app_category':'Entertainment'
-        },
-        {
-            'app_id':13008,
-            'app_name':'Netflix',
-            'app_vendor':'netflix inc',
-            'app_downloads':400000,
-            'app_ratings':4.5,
-            'app_category':'Entertainment'
-        },
-        {
-            'app_id':13009,
-            'app_name':'Netflix',
-            'app_vendor':'netflix inc',
-            'app_downloads':400000,
-            'app_ratings':4.5,
-            'app_category':'Entertainment'
-        },
+    // const[tempList,setTempList]=useState(
+    //     [
+    //     {
+    //         'app_id':13001,
+    //         'app_name':'Netflix',
+    //         'app_vendor':'youtube inc',
+    //         'app_downloads':400000,
+    //         'app_ratings':4.5,
+    //         'app_category':'Entertainment'
+    //     },
+    //     {
+    //         'app_id':13002,
+    //         'app_name':'Netflix',
+    //         'app_vendor':'youtube inc',
+    //         'app_downloads':400000,
+    //         'app_ratings':4.5,
+    //         'app_category':'Entertainment'
+    //     },
+    //     {
+    //         'app_id':13003,
+    //         'app_name':'Netflix',
+    //         'app_vendor':'netflix inc',
+    //         'app_downloads':400000,
+    //         'app_ratings':4.5,
+    //         'app_category':'Entertainment'
+    //     },
+    //     {
+    //         'app_id':13004,
+    //         'app_name':'Netflix',
+    //         'app_vendor':'netflix inc',
+    //         'app_downloads':400000,
+    //         'app_ratings':4.5,
+    //         'app_category':'Entertainment'
+    //     },
+    //     {
+    //         'app_id':13005,
+    //         'app_name':'Netflix',
+    //         'app_vendor':'netflix inc',
+    //         'app_downloads':400000,
+    //         'app_ratings':4.5,
+    //         'app_category':'Entertainment'
+    //     },
+    //     {
+    //         'app_id':13006,
+    //         'app_name':'Netflix',
+    //         'app_vendor':'netflix inc',
+    //         'app_downloads':400000,
+    //         'app_ratings':4.5,
+    //         'app_category':'Entertainment'
+    //     },
+    //     {
+    //         'app_id':13007,
+    //         'app_name':'Netflix',
+    //         'app_vendor':'netflix inc',
+    //         'app_downloads':400000,
+    //         'app_ratings':4.5,
+    //         'app_category':'Entertainment'
+    //     },
+    //     {
+    //         'app_id':13008,
+    //         'app_name':'Netflix',
+    //         'app_vendor':'netflix inc',
+    //         'app_downloads':400000,
+    //         'app_ratings':4.5,
+    //         'app_category':'Entertainment'
+    //     },
+    //     {
+    //         'app_id':13009,
+    //         'app_name':'Netflix',
+    //         'app_vendor':'netflix inc',
+    //         'app_downloads':400000,
+    //         'app_ratings':4.5,
+    //         'app_category':'Entertainment'
+    //     },
 
-    ])
+    // ])
+
+    const[tempList,setTempList]=useState([])
+
+    const callAxios=async()=>{
+        const myList = await callView()
+        setTempList(myList.message)
+    }
+
+    useEffect(()=>{
+        callAxios()
+    },[])
     
     const[found,setFound]=useState({})
 
