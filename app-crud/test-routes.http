@@ -12,7 +12,7 @@ Content-Type: application/json
     "appCategory":"Entertainment"
 }
 ###
-PUT http://localhost:1234/api/download/Subway surfers
+PUT http://localhost:1234/api/download/Maps
 ###
 PUT http://localhost:1234/api/download/Netflix
 ###

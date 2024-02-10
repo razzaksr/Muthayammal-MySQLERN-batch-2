@@ -1,6 +1,10 @@
 import { DataGrid } from "@mui/x-data-grid"
 import { useEffect, useState } from "react"
-import { callView } from "./Apicalls"
+import { callDelete, callDownload, callView } from "./Apicalls"
+import { Button } from "@mui/material"
+import DeleteOutlineIcon from '@mui/icons-material/DeleteOutline';
+import CloudDownloadIcon from '@mui/icons-material/CloudDownload';
+import { useNavigate } from "react-router-dom";
 const Available=()=>{
     // const[tempList,setTempList]=useState(
     //     [
@@ -81,6 +85,8 @@ const Available=()=>{
 
     const[tempList,setTempList]=useState([])
 
+    const nav=useNavigate()
+
     const callAxios=async()=>{
         const myList = await callView()
         setTempList(myList.message)
@@ -88,9 +94,11 @@ const Available=()=>{
 
     useEffect(()=>{
         callAxios()
-    },[])
+    },[tempList])
     
-    const[found,setFound]=useState({})
+    const[found,setFound]=useState({
+        "app_id":0
+    })
 
     const columns=[
         {
@@ -125,6 +133,8 @@ const Available=()=>{
         },
     ]
 
+    const[info,setInfo]=useState("")
+
     return(
         <>
             <div className="container">
@@ -133,6 +143,7 @@ const Available=()=>{
                         <h1 className="card-title text-center text-primary">Available Apps</h1>
                         <DataGrid
                             onRowSelectionModelChange={(one)=>{
+                                setInfo("")
                                 var collected=tempList.filter((each)=>{
                                     return each.app_id==one
                                 })
@@ -153,6 +164,31 @@ const Available=()=>{
                             pageSize={7}
                             pageSizeOptions={[3]}
                         />
+                        {
+                            (found.app_id!=0)?
+                            <>
+                                <div className="mt-2 row justify-content-around">
+                                    <Button onClick={async()=>{
+                                        // alert(JSON.stringify(found)+" to be donwloaded")
+                                        const gather = await callDownload(found.app_name)
+                                        setInfo(gather.message)
+                                        nav("/available")
+                                    }} className="col-3" variant="contained">
+                                        <CloudDownloadIcon/>{info}
+                                    </Button>
+                                    <Button color="error" onClick={async()=>{
+                                        // alert(JSON.stringify(found)+" to be deleted")
+                                        const rec = await callDelete(found.app_id)
+                                        setInfo(rec.message)
+                                        nav("/")
+                                    }} className="col-3" variant="contained">
+                                        <DeleteOutlineIcon/>{info}
+                                    </Button>
+                                </div>
+                            </>
+                            :
+                            <></>
+                        }
                     </div>
                 </div>
             </div>
